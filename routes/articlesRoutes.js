@@ -10,25 +10,20 @@ router.get('/new', (req,res)=>{
 router.get('/edit/:id', (req,res)=>{
     res.render('edit.ejs')
 })
-/*
-router.post('/', (req,res)=>{
-    req.article = new Article()
-    console.log(req)
-   // req.article= new article
-
-    res.status(200)
-})*/
+ 
+ 
 // Route pour créer un article
 router.post('/', async (req, res) => {
+    console.log(req.body)
     const article = new Article({
+        image: req.body.image,
         title: req.body.title,
         description: req.body.description,
-        image: req.body.image
     })
-
     try {
         const newArticle = await article.save()
-        res.redirect(`/articles/${newArticle.id}`)
+        // res.redirect(`/articles/${newArticle.id}`)
+        res.status(200).json(newArticle)
     } catch (err) {
         res.render('new.ejs', { article: article, errorMessage: 'Error creating article' })
     }
