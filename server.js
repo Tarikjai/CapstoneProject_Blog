@@ -5,16 +5,21 @@ const path = require('path')
 const  PORT = process.env.PORT
 const articlesRoutes = require('./routes/articlesRoutes')
 const Article  = require('./models/article')
+const methodOverride = require('method-override')
 const app = express()
 
+ 
 
 mongoose.connect('mongodb+srv://tarikjaidani:Atiminou5*@cluster0.ppcyl.mongodb.net/capstoneProject?retryWrites=true&w=majority&appName=Cluster0')
 
 app.use(express.urlencoded({ extended: false}))
 
 app.use(express.json());
+app.use(methodOverride('_method'))
+
 // Set the view engine to EJS
 app.set('view engine', 'ejs')
+
 // Set the directory for EJS view templates to the 'views' folder
 app.set('views', path.join(__dirname, 'views','articles'))
 
@@ -22,7 +27,7 @@ app.set('views', path.join(__dirname, 'views','articles'))
 app.use(express.static(path.join(__dirname,'/public')))
 
 
-
+// front end
 app.get('/', async(req,res)=>{
     const articles = await Article.find().sort({createdAt :"desc"})
    
@@ -30,7 +35,7 @@ app.get('/', async(req,res)=>{
 })
 
 
-
+//backend
 app.use('/articles', articlesRoutes)
 
 app.listen(PORT, ()=>{

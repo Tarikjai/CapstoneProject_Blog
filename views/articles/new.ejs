@@ -3,7 +3,12 @@
 <main class="flex-grow"> <!-- This will grow to fill the available space -->
     <!-- Main content goes here -->
     <div class="container mx-auto py-5 px-20"> <!-- Added container with margins -->
+        <h1 class="mb-4">New Article</h1>
+
+        <form action="/articles" method="POST">
         <%- include('../articles/_form_fields.ejs')  %>
+         </form>
+
     </div>
 </main>
 <%- include('../layouts/footer.ejs')  %>
