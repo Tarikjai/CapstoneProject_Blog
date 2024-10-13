@@ -25,9 +25,11 @@ app.use(express.static(path.join(__dirname,'/public')))
 
 app.get('/', async(req,res)=>{
     const articles = await Article.find().sort({createdAt :"desc"})
-    console.log(articles)
+   
     res.render('index.ejs', { articles : articles})
 })
+
+
 
 app.use('/articles', articlesRoutes)
 

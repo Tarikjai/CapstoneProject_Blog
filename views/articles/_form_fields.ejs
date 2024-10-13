@@ -1,15 +1,15 @@
 <div class="mb-4">
     <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-    <input required value="" type="text" name="title" id="title" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    <input required value="<%= article.title %>" type="text" name="title" id="title" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
 </div>
 
 <div class="mb-4">
     <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-    <textarea required name="description" id="description" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+    <textarea required   name="description" id="description" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"><%= article.description %></textarea>
 </div>
 <div class="mb-4">
-    <label for="link" class="block text-sm font-medium text-gray-700">URL image</label>
-    <input required type="url" name="link" id="link" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+    <label for="link"class="block text-sm font-medium text-gray-700">URL image</label>
+    <input required type="url" value="<%= article.image %>" placeholder="https://" name="link" id="link" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
 </div>
 
 <div class="flex space-x-4">
